@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <script src="lib/jquery.min.js"></script>
+    <script src="src/bootstrap.js"></script>
+    <script src="src/runtime.js"></script>
+    <script src="src/util.js"></script>
+    <script src="src/symbol.js"></script>
+    <script src="src/lexer.js"></script>
+    <script src="src/functionParser.js"></script>
+    <script src="src/classParser.js"></script>
+    <script src="src/objectParser.js"></script>
+    <script src="src/expressionParser.js"></script>
+    <script src="src/parser.js"></script>
+    <script src="src/interpreter.js"></script>
+    <script src="src/jazz.js"></script>
+    
+    <script type="jazz">
+      person = (_name) {
+        priv = () {
+          log "ha!"
+        }
+        
+        {
+          name = _name
+          talk = () {
+            priv()
+            log "hihi"
+            log "my name is " + name
+          }
+        }
+      }
+      
+      p = person("bruno")
+      p.talk()
+      
+    </script>
+      f = () {
+        x = 1
+        g = () {
+          log x
+        }
+      }
+      f()()
+      
+      l = [1, 2, 3]
+      log l[2 - 1]
+      
+      x = 1 + 1
+      y = x * 2 - 3 * 2
+      log "-3 : " + y.add(-4).add(5).multiply(3)
+      log "false : "  + (1 is 2.subtract(0))
+      log "true : " + (1 is 1.1.subtract(0.1))
+      p = {
+        name = "john"
+        age = 12
+        greet = () {
+          "yes!"
+        }
+        toString = () {
+          "JOHN'S OBJECT"
+        }
+      }
+      log p.name
+      log p.age
+      log p.greet()
+      log p.asString()
+      
+      class Person {}
+      log "Person : " + Person.name()
+      log "Class Person : " + Person.asString()
+      p2 = Person.new()
+      log "Object[Person] : " + p2.asString()
+    
+    <script type="text/javascript">
+      jazz.run();
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
