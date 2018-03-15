@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% flash.each do |name, msg| %>
+	<%= content_tag :div, msg, :id => "flash#{name}" %>
+<% end %>
+
+<hr />
+<% if current_user %>
+	<p>Logged in with email <%= current_user.email %> | <%= link_to "log out", log_out_path %></p>
+<% else %>
+	<p><%= link_to "log in", log_in_path %> | <%= link_to "sign up", sign_up_path %></p>
+<% end %>
+
+<hr />
+
+<div>
+	<%= link_to "Products", products_path %> | <%= link_to "Categories", categories_path %> | <%= link_to "Tags", tags_path %>
+</div>
+
+<hr />
+
+<%= yield %>
+
+</body>
+</html>
